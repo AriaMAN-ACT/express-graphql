@@ -5,7 +5,7 @@ const GraphQLSchema = require('./schema/schema');
 
 const app = express();
 
-app.use('/graphql', expressGraphQL({
+app.use('/api/graphql/v1', expressGraphQL({
     graphiql: true,
     schema: GraphQLSchema
 }));
