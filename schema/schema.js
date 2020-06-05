@@ -110,6 +110,17 @@ const Mutation = new GraphQLObjectType({
                     companyId
                 }).then(res => res.data);
             }
+        },
+        deleteUser: {
+            type: UserType,
+            args: {
+                id: {
+                    type: new GraphQLNonNull(GraphQLString)
+                }
+            },
+            resolve(parentValues, {id}) {
+                return axios.delete(`http://localhost:3001/users/${id}`).then(res => res.data);
+            }
         }
     }
 });
